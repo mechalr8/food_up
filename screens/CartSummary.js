@@ -2,6 +2,7 @@ import {Text, View, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import Icon1 from 'react-native-vector-icons/FontAwesome';
 import {Card} from 'react-native-paper';
+import RazorpayCheckout from 'react-native-razorpay';
 
 const CartSummary = ({navigation, route}) => {
   const [count, setCount] = useState(0);
@@ -16,6 +17,33 @@ const CartSummary = ({navigation, route}) => {
     if (count == 0) setCount(0);
     else setCount(count - 1);
   };
+
+  const Checkout = () => {
+    var options = {
+      description: 'Order bill',
+      image: '',
+      currency: 'INR',
+      key: 'rzp_test_ihyN942As43mJi',
+      amount: '200',
+      name: 'Food Up',
+      prefill: {
+        email: 'harsitagrawal59@gmail.com',
+        contact: '9084713325',
+        name: 'Harsit Agrawal',
+      },
+      theme: {color: '#53a20e'},
+    };
+
+    RazorpayCheckout.open(options)
+      .then(data => {
+        navigation.navigate('Pay');
+        console.log('Success:', data.razorpay_payment_id);
+      })
+      .catch(error => {
+        console.log('Error:', error);
+      });
+  };
+
   return (
     <View style={styles.container}>
       <View>
@@ -90,9 +118,10 @@ const CartSummary = ({navigation, route}) => {
       </View>
       <TouchableOpacity
         style={styles.payView}
-        onPress={() => {
-          navigation.navigate('Pay');
-        }}>
+        onPress={() =>
+          // navigation.navigate('Pay');
+          Checkout()
+        }>
         <Text style={styles.payText}>Proceed To Pay</Text>
       </TouchableOpacity>
     </View>
