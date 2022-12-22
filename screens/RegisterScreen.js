@@ -37,7 +37,7 @@ const ResgisterScreen = ({navigation}) => {
           style={styles.textInput}
         />
         <TextInput
-          placeholder="Password"
+          placeholder="Create Password"
           value={password}
           onChangeText={text => setPassword(text)}
           placeholderTextColor={'#9a9a97'}
