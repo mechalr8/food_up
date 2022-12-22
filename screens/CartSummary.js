@@ -36,7 +36,7 @@ const CartSummary = ({navigation, route}) => {
 
     RazorpayCheckout.open(options)
       .then(data => {
-        navigation.navigate('Pay');
+        navigation.navigate('OrderConfirm');
         console.log('Success:', data.razorpay_payment_id);
       })
       .catch(error => {

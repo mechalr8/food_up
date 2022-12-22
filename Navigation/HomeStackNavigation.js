@@ -6,8 +6,9 @@ import ResgisterScreen from '../screens/RegisterScreen';
 import HomeScreen from '../screens/HomeScreen';
 import RestaurantDetail from '../screens/RestaurantDetail';
 import CartSummary from '../screens/CartSummary';
+import OrderConfirm from '../screens/OrderConfirm';
 import BottomTabNavigation from './BottomTabNavigation';
-import PaymentGateway from '../screens/PaymentGateway';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -47,8 +48,8 @@ export default function HomeStackNavigation() {
         />
         <Stack.Screen
           options={{headerShown: false}}
-          name="Pay"
-          component={PaymentGateway}
+          name="OrderConfirm"
+          component={OrderConfirm}
         />
       </Stack.Navigator>
     </NavigationContainer>
