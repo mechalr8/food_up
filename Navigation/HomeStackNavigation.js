@@ -8,7 +8,7 @@ import RestaurantDetail from '../screens/RestaurantDetail';
 import CartSummary from '../screens/CartSummary';
 import OrderConfirm from '../screens/OrderConfirm';
 import BottomTabNavigation from './BottomTabNavigation';
-
+import TrackOrder from '../screens/TrackOrder';
 
 const Stack = createNativeStackNavigator();
 
@@ -50,6 +50,11 @@ export default function HomeStackNavigation() {
           options={{headerShown: false}}
           name="OrderConfirm"
           component={OrderConfirm}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Track"
+          component={TrackOrder}
         />
       </Stack.Navigator>
     </NavigationContainer>

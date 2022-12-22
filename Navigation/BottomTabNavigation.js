@@ -3,6 +3,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 import HomeScreen from '../screens/HomeScreen';
 import CartSummary from '../screens/CartSummary';
+import TrackOrder from '../screens/TrackOrder';
+import Profile from '../screens/Profile';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,8 +17,13 @@ export default function BottomTabNavigation() {
         options={{headerShown: false}}
       />
       <Tab.Screen
-        name="Cart"
-        component={CartSummary}
+        name="Track"
+        component={TrackOrder}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
         options={{headerShown: false}}
       />
     </Tab.Navigator>
